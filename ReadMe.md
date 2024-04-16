@@ -1,3 +1,5 @@
+![screenshot.png](screenshot.png)
+
 # Example using:
 ****
 - Increase volume (0.1 - 1.0)
