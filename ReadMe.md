@@ -1,7 +1,11 @@
 ![screenshot.png](screenshot.png)
 
-# Example using:
+A simple application to control system volume with fancy visualisation.
+
+# Usage:
+Application controls system volume by giving arguments to it through command execution.
 ****
+Possible arguments are:
 - Increase volume (0.1 - 1.0)
 ```bash
 mixerdialog increase 0.1
@@ -11,15 +15,15 @@ mixerdialog increase 0.1
 mixerdialog decrease 0.1
 ```
 
-## Wayland tailing WM warning
+## For Wayland tiling compositors users
 ****
-GTK3 cannot make window float on Wayland using GDK_WINDOW_TYPE_HINT_DIALOG!
+In Wayland, programs can't forcefully change windows' attributes. In this program, GDK_WINDOW_TYPE_HINT_DIALOG is used, but it doesn't give any effect further.
 
-**Use floating rules for your wayland WM!**
+**To fix this, use rules or any other way to disable stacking to your tiled layout for current compositor!**
 
-### Example hypland:
+### Example of setting a special rule with Hyprland:
 
-hyprland.conf
+~/config/hypr/hyprland.conf
 ```hyprland.conf
 windowrule = float, ^(mixerdialog)$
 ```
