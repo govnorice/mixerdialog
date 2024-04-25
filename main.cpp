@@ -10,6 +10,10 @@
 // Images
 #include "images/images.h"
 
+#include "style.hex"
+
+const char *homeDir = getenv("HOME");
+
 using namespace std;
 
 GtkWidget *volume_bar;
@@ -63,13 +67,17 @@ int main(int argc, char *argv[]) {
 
     gtk_container_add(GTK_CONTAINER(window), box1);
 
-    // Load CSS
+    //CSS
     CssManager cssManager;
-    cssManager.loadFromFile("style.css");
+
+    string path = string(homeDir) + "/.config/powerdialog/style.css";
+
+    cssManager.loadFromHex(style_css, style_css_len);
+    cssManager.loadFromFile(path.c_str());
 
     gtk_widget_show_all(window);
 
-//    g_timeout_add(500, GSourceFunc(on_window_closed), NULL);
+    g_timeout_add(500, GSourceFunc(on_window_closed), NULL);
 
     gtk_main();
 
