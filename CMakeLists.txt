@@ -24,5 +24,3 @@ if (ALSA_FOUND)
     include_directories(${ALSA_INCLUDE_DIRS})
     target_link_libraries(mixerdialog ${ALSA_LIBRARIES})
 endif (ALSA_FOUND)
-
-configure_file(${CMAKE_SOURCE_DIR}/style.css ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
