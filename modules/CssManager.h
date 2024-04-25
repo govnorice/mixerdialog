@@ -16,7 +16,7 @@ public:
     void loadFromData(const gchar *data);
     void loadFromHex(unsigned char* hex, unsigned int hex_len);
 private:
-    GtkCssProvider *provider;
+    GtkCssProvider *provider, *provider2;
     GtkStyleContext *context;
 };
 
