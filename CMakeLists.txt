@@ -15,6 +15,7 @@ add_executable(mixerdialog main.cpp
         modules/CssManager.h
         modules/MixerManager.cpp
         modules/MixerManager.h
+        images/images.h
 )
 
 target_link_libraries(mixerdialog ${GTK3_LIBRARIES})
@@ -25,4 +26,3 @@ if (ALSA_FOUND)
 endif (ALSA_FOUND)
 
 configure_file(${CMAKE_SOURCE_DIR}/style.css ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/images/volume.png ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
