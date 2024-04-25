@@ -3,14 +3,17 @@
 #include <gtk/gtk.h>
 #include <string>
 
+// Modules
 #include "modules/CssManager.h"
 #include "modules/MixerManager.h"
+
+// Images
+#include "images/images.h"
 
 using namespace std;
 
 GtkWidget *volume_bar;
 MixerManager mixerManager;
-
 
 void on_window_closed() {
     gtk_main_quit();
@@ -32,8 +35,10 @@ int main(int argc, char *argv[]) {
 
     GtkWidget *box1 = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
-    GdkPixbuf *image_pixbuf = gdk_pixbuf_new_from_file_at_size("volume.png", 100, 100, NULL);
-    GtkWidget *image = gtk_image_new_from_pixbuf(image_pixbuf);
+    GdkPixbuf *image_pixbuf = gdk_pixbuf_new_from_data(*imageData_volume, GDK_COLORSPACE_RGB, TRUE, 8, IMAGE_WIDTH - 50, IMAGE_HEIGHT, 3 * IMAGE_HEIGHT, NULL, NULL);
+    GdkPixbuf *resized_pixbuf = gdk_pixbuf_scale_simple(image_pixbuf, 90, 90, GDK_INTERP_BILINEAR);
+
+    GtkWidget *image = gtk_image_new_from_pixbuf(resized_pixbuf);
 
     volume_bar = gtk_level_bar_new_for_interval(0.0, 1.0);
 
@@ -64,7 +69,7 @@ int main(int argc, char *argv[]) {
 
     gtk_widget_show_all(window);
 
-    g_timeout_add(500, GSourceFunc(on_window_closed), NULL);
+//    g_timeout_add(500, GSourceFunc(on_window_closed), NULL);
 
     gtk_main();
 
