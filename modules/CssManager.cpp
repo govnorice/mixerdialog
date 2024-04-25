@@ -25,3 +25,12 @@ void CssManager::loadFromData(const gchar *data) {
     gtk_css_provider_load_from_data(provider, data, -1, nullptr);
     gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 }
+void CssManager::loadFromHex(unsigned char* hex, unsigned int hex_len) {
+    std::string decoded_text;
+
+    for (unsigned int i = 0; i < hex_len; ++i) {
+        decoded_text += hex[i];
+    }
+
+    CssManager::loadFromData(decoded_text.c_str());
+}

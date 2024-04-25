@@ -6,6 +6,7 @@
 #define TEST_CSSMANAGER_H
 
 #include <gtk/gtk.h>
+#include <string>
 
 class CssManager {
 public:
@@ -13,6 +14,7 @@ public:
     ~CssManager();
     void loadFromFile(const gchar *filename);
     void loadFromData(const gchar *data);
+    void loadFromHex(unsigned char* hex, unsigned int hex_len);
 private:
     GtkCssProvider *provider;
     GtkStyleContext *context;
