@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     //CSS
     CssManager cssManager;
 
-    string path = string(homeDir) + "/.config/powerdialog/style.css";
+    string path = string(homeDir) + "/.config/mixerdialog/style.css";
 
     cssManager.loadFromHex(style_css, style_css_len);
     cssManager.loadFromFile(path.c_str());
