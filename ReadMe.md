@@ -1,5 +1,7 @@
 ![screenshot.png](screenshot.png)
 
+https://github.com/govnorice/mixerdialog/assets/80642969/83154b88-1a92-456e-8f0e-4b9f0841006c
+
 A simple application to control system volume with fancy visualisation.
 
 # Usage:
